@@ -1,0 +1,460 @@
+ /* GENERAL RULE SETS */   
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    }
+
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0 auto;
+    min-height: 100%;
+    background-color: #f6f6f6;
+    font-family: 'Lora', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Candal', sans-serif;
+}
+
+.submit-btn {
+    padding: 0.8rem 1.2rem;
+    line-height: 1.2rem;
+    background: #006669;
+    color: white;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    margin: 0px auto;
+    font-family: 'Lora', sans-serif;
+}
+
+/* MAIN HEADER */
+.header{
+    width:100%;
+    overflow: auto;
+    background-color: azure;
+} 
+
+.header h1{ 
+    float: left;
+    width: 50%;
+    position: relative;
+    color: #009900;
+    font-weight:bold;
+    line-height: 2.5;
+    padding-right: 10px;
+} 
+
+.header h2 { 
+    width: 50%;
+    position: relative;
+    float: left;
+    color: #32cd32; /*#009900*/
+    margin-left:10px; 
+    margin-bottom:0px; 
+}
+
+.logo {
+    float: left;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    margin-right: 2px;
+}
+
+/* NAVIGATION BAR */
+.menu {    
+    background-color:#4169E1;
+    padding: 10px 0px 10px 0px;
+    margin: 0 auto;
+    overflow: hidden;
+    width: 100%;
+    padding: 0;
+    padding-top: 2px;
+}
+
+.menu ul {
+    margin: 0;
+    padding: 0;
+    /* border: 1px solid yellow; */
+}
+
+.menu li{
+    display: inline-block;
+    list-style: none;
+    margin: 0 3px;
+    padding: 0;
+    /* border: 1px solid red;  */
+}
+
+.menu li::after{
+    content: '';
+    display: block;
+    width: 0;
+    height: 4px;
+    background-color: white;
+    position: relative;
+    top: 52px;
+    transition: width 250ms linear;
+}
+
+.menu li:hover::after {
+    width: 100%;
+    transition: width 250ms linear;
+    transition-delay: 70ms;
+}
+
+.menu .active::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 4px;
+    background-color: white;
+}
+
+.menu a { 
+    float: left; 
+    color: white; 
+    text-align: center; 
+    padding: 14px 16px; 
+    text-decoration: none; 
+    font-size: 20px; 
+}
+
+.menu-log { 
+    right: auto; 
+    float: right; 
+}
+
+/* CONTENT */
+#home-background-image {
+    background-repeat: no-repeat;
+    background-position: cover;
+    height: 750px;
+    width: 100%;   
+}
+
+.background-image {
+    background-image: url(images/students.jpg);
+    background-repeat: no-repeat;
+    /*background-size: 100% 700px; */
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+#content-section {
+    width: 90%;
+    margin: 30px auto 30px;
+}
+
+#content-section > h1{
+    margin: 10px auto 50px;
+    text-align: center;
+    text-decoration: underline;
+    font-weight: bold;
+    color: royalblue;
+    overflow: hidden;
+}
+
+#post-wrapper {
+    display: flex;
+    justify-content: space-around;
+}
+
+#post-wrapper .posts {
+    width: 30%;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+                0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+#post-wrapper .posts .post-image {
+    margin: 0;
+    padding: 0;
+    height: 250px;
+    overflow: hidden;
+}
+
+#post-wrapper .posts img {
+    height: 250px;
+    width: 100%;
+    overflow: hidden;
+    transition: transform 300ms ease-in-out;
+}
+
+#post-wrapper .posts:hover img {
+    transform: scale(1.15);
+    transition: transform 300ms ease-in-out;
+    overflow: hidden;
+}
+
+#post-wrapper .posts .post-preview {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    flex-grow: 1;
+}
+
+#post-wrapper .posts .post-preview .stories-headline {
+    padding-top: 5px;
+    padding-bottom: 3px;
+    text-align: left;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+#post-wrapper .posts .post-preview .home-icons {
+    margin-bottom: 6px;
+}
+
+#post-wrapper .posts .post-preview p {
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+.post-btn {
+    display: block;
+    align-self: stretch;
+    width: 100%;
+    margin: 0 auto;
+    text-decoration: none;
+    text-align: center;
+    padding: 9.5px 9.5px;
+    /* margin: 0 2px 2px 0; */
+    border-radius: 5px;
+    font-family: sans-serif;
+    font-weight: 600;
+    border: 1.5px #d85422 solid;
+    background-color: white;
+    color: #d85422;
+}
+
+.post-btn:hover {
+    color: white;
+    background-color: #d85422;
+    padding: 9.5px 9.5px;
+    transition: color 280ms ease-out;
+    transition: border 280ms ease-out;
+    transition: background-color 280ms ease-out;
+}
+
+.clearfix::after {
+    content:'';
+    display: block;
+    clear:both;
+    height:0;
+    visibility: hidden;
+}
+
+/* FOOTER */
+footer { 
+    width: 100%;
+    height: 400px;
+    padding: 0;
+    bottom: 0px;
+    background: #303036;
+    color: #d3d3d3;
+    overflow: hidden;
+    position: relative;
+} 
+
+footer h1, footer h2 {
+    color: white;
+}
+
+.footer-wrapper{
+    margin: 0;
+    width: 100%;
+    height: auto; 
+    display: flex;
+}
+.footer-wrapper .address, .footer-wrapper .quick-links, .footer-wrapper .contact-us {
+    flex: 1;
+    text-align: left;
+    padding:30px;  
+}
+
+/* Address */
+footer .address p span {
+    display: block ;
+    margin-bottom: 12px;
+}
+
+footer .address .contact span {
+    display: block;
+    margin-bottom: 12px; 
+}
+
+footer .address .socials {
+    margin-top: 20px;
+}
+
+footer .address .socials a {
+    display: inline-block;
+    width: 45px;
+    height: 41px;
+    margin-right: 5px;
+    padding-top: 5px;
+    text-align: center;
+    font-size: 1.4em;
+    border: 1px solid grey;
+    border-radius: 5px;
+    color: grey;
+    transition: all 300ms ease-out;
+}
+
+footer .address .socials a:hover {
+    color: white;
+    border-color: white;
+    transition: all 300ms ease-out;
+}
+
+/* Quick Links */
+.quick-links h2 {
+    margin-bottom: 6px;
+}
+
+/* .footer-wrapper {
+    float: left;
+    padding-top: 0;
+    border: 1px solid yellow;
+} */
+
+.footer-wrapper ul{
+    display: block;
+    margin-top: 20px;
+}
+
+.footer-wrapper ul li{
+    margin: 10px;
+    margin-left: 0;
+    list-style-type: none;
+}
+
+.footer-wrapper ul li a{
+    display: block;
+    width: 30%;
+    text-decoration: none;
+    color: #d3d3d3;
+    transition: all 250ms ease-out;
+    transition-delay: 30ms;
+}
+
+.footer-wrapper ul li a:hover {
+    /* margin-left: 10px; */
+    color: #fff;
+    transition: all 250ms ease-out;
+}
+
+/* Contact Us */
+.contact-us .contact-input {
+    width: 100%;
+    background: #272727;
+    color: #bebdbd;
+    margin-bottom: 10px;
+    padding: 16px 23px;
+    font-family: 'Lora', sans-serif;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+}
+
+.contact-us .contact-input:focus {
+    outline: none;
+    background-color: #1a1a1a;
+}
+
+.contact-us button {
+    float: right;
+    font-size: 1.1rem;
+}
+
+footer .copyright-footer {
+    width: 100%; 
+    padding: 4px;
+    text-align: center;
+    color:  grey;
+    background-color: rgba(31, 25, 25, 0.692);
+    position: absolute;
+    bottom: 0px;
+}
+
+/* AUTHORIZATION PAGES*/
+.registration-wrapper  {
+    width: 400px;
+    height: auto;
+    margin: 50px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 3px 12px #a0a0a033;
+}
+
+.registration-form .form-title {
+    text-align: center;
+    font-size: 1.7em;
+    margin: 5px;
+}
+
+.registration-form div {
+    /* border: 1px solid red; */
+    padding-bottom: 2px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.registration-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1.08rem;
+}
+
+.registration-form input {
+    display: block;
+    width: 100%;
+    padding: .7rem 1rem;
+    line-height: 2rem;
+    font-size: 1.2rem;
+    outline: none;
+    border: 1px solid #c0c0c0;
+    border-radius: 5px;
+}
+
+.registration-form i {
+    position: absolute;
+    top: 45px;
+    right: 10px;
+    font-size: 18px;
+    visibility: hidden;
+}
+
+.registration-form small {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-size: 0.95rem;
+    visibility: hidden;
+}
+
+.registration-wrapper .registration-form button {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 5px;
+    font-size: 1.1rem;
+}
+
+.registration-wrapper .registration-form p {
+    text-align: center;
+}
+
+.registration-wrapper .registration-form p a {
+    color: black;
+}

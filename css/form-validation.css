@@ -1,0 +1,26 @@
+.success input{
+    border: 1px solid #49a549;
+}
+
+.success i.fa-check-circle {
+    color: #49a549;
+    visibility: visible;
+}
+
+/* .success small {
+    color: #49a549;
+} */
+
+.error input {
+    border: 1px solid #e73333;
+}
+
+.error i.fa-exclamation-circle {
+    color: #e73333;
+    visibility: visible;
+}
+
+.error small {
+    color: #ff1b1b;
+    visibility: visible;
+}

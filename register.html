@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <Title> Register Page </Title>
+    <link rel="stylesheet" type="text/css" href="css/Ridgecrest.css">
+    <link rel="stylesheet" href="css/form-validation.css">
+    <link href="fontawesome/css/all.min.css"  rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Candal&family=Lora&display=swap" rel="stylesheet">   
+</head>
+
+<body>
+    <!-- Menu -->        
+    <div class="menu">
+        <ul>
+            <li><a href="index.html"> HOME </a></li>
+            <li><a href="Admission.html"> ADMISSIONS </a></li>
+            <li><a href="Academics.html">ACADEMICS </a></li>
+            <li><a href="About_us.html"> ABOUT US </a></li>
+            <li><a href="Blog.html"> BLOG </a></li>
+            <li class="menu-log active"><a href="Login.html">LOGIN</a></li>
+        </ul>
+    </div>
+    <!-- // Menu -->
+
+    <!-- Registration Form -->
+    <div class="registration-wrapper">
+        <form class="registration-form">
+            <h2 class="form-title"> Register </h2>
+            <div class="form-section">
+                <label>Username</label>
+                <input type="text" name="username" id="username"><br>
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error message</small>
+            </div>
+
+            <div class="form-section">
+                <label>Email</label>
+                <input type="email" name="email" id="email"><br>
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error message</small>
+            </div>
+
+            <div id="form-section">
+                <label>Password</label>
+                <input type="password" name="password" id="password-reg"><br>
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error message</small>
+            </div>
+            
+            <div id="form-section">
+                <label for="">Password Confirmation</label>
+                <input type="password" name="password" id="password-confirmation"><br>
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error message</small>
+            </div>
+
+            <div id="submit-reg-div">
+                <button type="submit" name="register-btn" id="register-btn" class="submit-btn"> Submit </button><br>
+            </div>
+
+            <p> Or <a href="Login.html">Login</a></p>
+        </form>
+    </div> 
+    <!-- // Registration Form -->
+
+    <script src="js/script.js"></script>
+
+</body>
+</html>

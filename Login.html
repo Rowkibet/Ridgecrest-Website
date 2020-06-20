@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <Title> Login Page </Title>
+    <link rel="stylesheet" type="text/css" href="css/Ridgecrest.css">
+    <link rel="stylesheet" href="css/form-validation.css">
+    <link href="fontawesome/css/all.min.css"  rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Candal&family=Lora&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Menu -->        
+    <div class="menu">
+        <ul>
+            <li><a href="index.html"> HOME </a></li>
+            <li><a href="Admission.html"> ADMISSIONS </a></li>
+            <li><a href="Academics.html">ACADEMICS </a></li>
+            <li><a href="About_us.html"> ABOUT US </a></li>
+            <li><a href="Blog.html"> BLOG </a></li>
+            <li class="menu-log active"><a href="Login.html">LOGIN</a></li>
+        </ul>
+    </div>
+    <!-- // Menu -->
+
+    <!-- Login Form -->
+    <div class="registration-wrapper">
+        <form id="login-form">
+            <h2 class="form-title"> Login </h2>
+            <div id="username">
+                <label>Username</label>
+                <input type="text" name="username"><br>
+                <div class="msg error">Username Required</div>
+            </div>
+
+            <div id="password">
+                <label>Password</label>
+                <input type="password" name="password"><br>
+                <div class="msg error">Password Incorrect</div>
+            </div>
+            
+            <div>
+                <button type="submit" name="login-btn" id="login-btn" class="submit-btn"> Submit </button><br>
+            </div>
+
+            <p> Or <a href="register.html">Sign Up</a></p>
+        </form>
+    </div> 
+    <!-- // Login Form -->
+
+    <script src="js/form-validation.js"></script>
+
+</body>
+</html>

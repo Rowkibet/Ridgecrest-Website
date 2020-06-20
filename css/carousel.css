@@ -1,0 +1,100 @@
+* {
+    box-sizing: border-box;
+}
+
+.carousel {
+    /* border: 1px solid blue; */
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel-track-container {
+    position: relative;
+    background: green;
+    /* border: 1px solid red; */
+    width: 100%;
+    height: 700px;
+    margin: 0 auto;
+    overflow: hidden;   
+}
+
+.carousel-track {
+    /* border: 1px solid green; */
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    transition: transform 250ms ease-in-out;
+    height: 100%;
+}
+
+.carousel-track .carousel-slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /* border: 3px solid purple; */
+}
+
+.carousel-image {
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-btn {
+    height: 100px;
+    width: 45px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border: transparent;
+    background: rgba(0, 0 , 0, .60);
+    color: rgb(155, 154, 154);
+    text-align: center;
+    outline: none;
+    cursor: pointer;
+    font-size: 1.37em;
+    z-index: 100;
+    /* transition: all 300ms ease-out; */
+}
+
+.carousel-btn.previous-btn {
+    left: 0px;
+    border-top-right-radius: 5rem;
+    border-bottom-right-radius: 5rem;
+    padding-right: 5px;
+    transition: left 300ms ease-in-out;
+}
+
+.carousel-btn.next-btn {
+    right: 0px;
+    border-top-left-radius: 5rem;
+    border-bottom-left-radius: 5rem;
+    padding-left: 5px;
+    transition: right 300ms ease-in-out;
+}
+
+.carousel-slider-nav {
+    /* background: pink; */
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    padding: 6px;
+    /* transition: all 300ms ease-out; */
+}
+
+.carousel-slider-nav .slider-indicator {
+    padding: 8px;
+    margin: 5px;
+    border-radius: 50%;
+    border: 1px solid  rgba(0, 0 , 0, .50);
+    outline: none;
+    cursor: pointer;
+}
+
+.carousel-slider-nav .slider-indicator.current-dot {
+    background-color: rgba(0, 0 , 0, .60);
+}
+
+.is-hidden {
+    display: none;
+    /* transition: all 300ms ease-out; */
+}
