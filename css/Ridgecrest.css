@@ -397,26 +397,26 @@ footer .copyright-footer {
     box-shadow: 0 3px 12px #a0a0a033;
 }
 
-.registration-form .form-title {
+.registration-wrapper .form-title {
     text-align: center;
     font-size: 1.7em;
     margin: 5px;
 }
 
-.registration-form div {
+.registration-wrapper div {
     /* border: 1px solid red; */
     padding-bottom: 2px;
     margin-bottom: 10px;
     position: relative;
 }
 
-.registration-form label {
+.registration-wrapper label {
     display: block;
     margin-bottom: 5px;
     font-size: 1.08rem;
 }
 
-.registration-form input {
+.registration-wrapper input {
     display: block;
     width: 100%;
     padding: .7rem 1rem;
@@ -427,7 +427,7 @@ footer .copyright-footer {
     border-radius: 5px;
 }
 
-.registration-form i {
+.registration-wrapper i {
     position: absolute;
     top: 45px;
     right: 10px;
@@ -435,7 +435,7 @@ footer .copyright-footer {
     visibility: hidden;
 }
 
-.registration-form small {
+.registration-wrapper small {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -443,7 +443,7 @@ footer .copyright-footer {
     visibility: hidden;
 }
 
-.registration-wrapper .registration-form button {
+.registration-wrapper button {
     display: block;
     width: 100%;
     margin: 0 auto;
@@ -451,10 +451,10 @@ footer .copyright-footer {
     font-size: 1.1rem;
 }
 
-.registration-wrapper .registration-form p {
+.registration-wrapper p {
     text-align: center;
 }
 
-.registration-wrapper .registration-form p a {
+.registration-wrapper p a {
     color: black;
 }

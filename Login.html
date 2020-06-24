@@ -24,18 +24,22 @@
 
     <!-- Login Form -->
     <div class="registration-wrapper">
-        <form id="login-form">
+        <form class="login-form">
             <h2 class="form-title"> Login </h2>
-            <div id="username">
+            <div class="form-section">
                 <label>Username</label>
-                <input type="text" name="username"><br>
-                <div class="msg error">Username Required</div>
+                <input type="text" name="username" id="username"><br>
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error message</small>
             </div>
 
-            <div id="password">
+            <div class="form-section">
                 <label>Password</label>
-                <input type="password" name="password"><br>
-                <div class="msg error">Password Incorrect</div>
+                <input type="password" name="password" id="password"><br>
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error message</small>
             </div>
             
             <div>
@@ -47,7 +51,7 @@
     </div> 
     <!-- // Login Form -->
 
-    <script src="js/form-validation.js"></script>
+    <script src="js/login-validation.js"></script>
 
 </body>
 </html>
