@@ -40,6 +40,8 @@ function validateData() {
         // password
         if(passwordData === '') {
             setErrorFor(password, "Password cannot be blank");
+        } else if(passwordData.length < 8) {
+            setErrorFor(password, "Password must contain a minimum of 8 characters")
         } else {
             setSuccessFor(password);
         }
@@ -47,6 +49,9 @@ function validateData() {
         // password confirmation
         if(password2Data === '') {
             setErrorFor(password2, "Password cannot be blank");
+        } else if(passwordData.length < 8 && password2Data.length < 8) {
+            setErrorFor(password, "Password must contain a minimum of 8 characters");
+            setErrorFor(password2, "Password not valid");
         } else if(password2Data !== passwordData) {
             setErrorFor(password2, "Passwords do not match");
         } else {

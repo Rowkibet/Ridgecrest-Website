@@ -26,6 +26,8 @@ function validateData() {
         // password
         if(passwordData === '') {
             setErrorFor(password, "Password cannot be blank");
+        } else if(passwordData.length < 8) {
+            setErrorFor(password, "Password is too short")
         } else {
             setSuccessFor(password);
         }
@@ -55,7 +57,7 @@ function hasClass(success) {
 
     let arrayIndex = isClass.findIndex((element => element === false));
     if(arrayIndex === -1) {
-        console.log("Registration Successful");
+        console.log("Login Successful");
     } else {
         console.log("Error");
     }
