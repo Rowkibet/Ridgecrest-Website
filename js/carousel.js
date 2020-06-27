@@ -1,7 +1,7 @@
 // Caching the DOM
 const trackContainer = document.querySelector('.carousel');
 const track = document.querySelector('.carousel-track');// ul
-const slides = track.children;// li items
+let slides = track.children;// li items
 const prevButton = document.querySelector('.previous-btn');
 const nextButton = document.querySelector('.next-btn');
 const dotsNav = document.querySelector('.carousel-slider-nav');
@@ -12,37 +12,75 @@ let timerID = null;
 let timeoutID = null;
 
 // Arrange the slides next to one another
-    // width of individual slide
-    const slideWidth = slides[0].getBoundingClientRect().width;
+    function arrangeSlides() {
+        // width of individual slide
+        const slideWidth = slides[0].getBoundingClientRect().width;
 
-    //Insert a left property to the three image slides
-    Array.from(slides).forEach(function(slide, index) {
-        slide.style.left = `${slideWidth * index}px`; 
-    });
+        //Insert a left property to the three image slides
+        Array.from(slides).forEach(function(slide, index) {
+            slide.style.left = `${slideWidth * index}px`; 
+        });
+    }
+    arrangeSlides();
 
-// Autoplay carousel, and stop on hover
-timerID = setInterval(changeSlides, 3000); 
+// Autoplay carousel
+// Create clones of the first and last slides
+const firstClone = slides[0].cloneNode(true);
+firstClone.className = "carousel-slide first-clone";
+const lastClone = slides[slides.length - 1].cloneNode(true);
+lastClone.className = "carousel-slide last-clone"
+
+track.append(firstClone);
+track.prepend(lastClone);
+
+arrangeSlides();
+slides = track.children;
+
+const firstSlide = document.querySelector('.current-slide');
+track.style.transform = `translateX(-${firstSlide.style.left})`;
 
 function changeSlides() {
+    timerID = setInterval(() => {
+        const currentSlide = document.querySelector('.current-slide');
+        const nextSlide = currentSlide.nextElementSibling;
+        const currentDot = document.querySelector('.current-dot');
+        const nextDot = currentDot.nextElementSibling;
+
+        moveToSlide(track, currentSlide, nextSlide);
+        //changeDot(currentDot, nextDot);
+    }, 3000)
+}
+
+changeSlides();
+
+track.addEventListener('transitionend', () => {
     const currentSlide = document.querySelector('.current-slide');
     const nextSlide = currentSlide.nextElementSibling;
     const currentDot = document.querySelector('.current-dot');
     const nextDot = currentDot.nextElementSibling;
-    const currentIndex = Array.from(slides).findIndex(slide => slide === currentSlide);
 
-    if(currentIndex === slides.length-1) {
-        track.style.transform = 'translateX(0)';
+    //check if reached the firstClone
+    if(currentSlide.className === firstClone.className) {
+        track.style.transition = 'none';
+        track.style.transform = `translateX(-${firstSlide.style.left})`;
         currentSlide.classList.remove('current-slide');
-        slides[0].classList.add('current-slide');
+        slides[1].classList.add('current-slide');
 
         currentDot.classList.remove('current-dot');
         dots[0].classList.add('current-dot');
-    } else {
-        moveToSlide(track, currentSlide, nextSlide);
-        changeDot(currentDot, nextDot);
+    } 
+    else if(currentSlide.className === lastClone.className) {
+        const lastSlide = slides[slides.length - 2];
+
+        track.style.transition = 'none';
+        track.style.transform = `translateX(-${lastSlide.style.left})`;
+        currentSlide.classList.remove('current-slide');
+        lastSlide.classList.add('current-slide');
+
+        currentDot.classList.remove('current-dot');
+        dots[0].classList.add('current-dot');
     }
-    
-};
+});
 
 // Display the arrows and nav indicators only when pointer hovers on carousel
 timeoutID = setTimeout(showOnHover, 1000);
@@ -52,24 +90,25 @@ function showOnHover(pointerOnCarousel) {
         const currentSlide = document.querySelector('.current-slide');
         const currentIndex = Array.from(slides).findIndex(slide => slide === currentSlide);
         
-        hideAndShowArrows(prevButton, nextButton, currentIndex, slides);
+        //hideAndShowArrows(prevButton, nextButton, currentIndex, slides);
+        prevButton.style.left = '0px';
+        nextButton.style.right = '0px';
     } else {
         prevButton.style.left = '-45px';
         nextButton.style.right = '-45px';
     }
 }
 
+//Stop changing of slides when mouse hovers
 trackContainer.addEventListener('mouseover', () => {
     pointerOnCarousel = true;
-    console.log(pointerOnCarousel);
     showOnHover(pointerOnCarousel);
     clearInterval(timerID);
 });
 trackContainer.addEventListener('mouseleave', () => {
     pointerOnCarousel = false;
-    console.log(pointerOnCarousel);
     showOnHover(pointerOnCarousel);
-    timerID = setInterval(changeSlides, 3000);
+    changeSlides();
 });
 
 //When I click left, move the slide to the left
@@ -84,13 +123,11 @@ prevButton.addEventListener('click', function(eventObject){
     moveToSlide(track, currentSlide, prevSlide);
 
     // Move to previous dot
-    changeDot(currentDot, prevDot);
-
-    // Hide and Show arrow buttons
-    hideAndShowArrows(prevButton, nextButton, prevIndex, slides);
+    //changeDot(currentDot, prevDot);
     
 });
 
+// Buttons and Nav Indicators
 //When I click right, move the slide to the right
 nextButton.addEventListener('click', function(eventObject){
     const currentSlide = document.querySelector('.current-slide');
@@ -103,10 +140,7 @@ nextButton.addEventListener('click', function(eventObject){
     moveToSlide(track, currentSlide, nextSlide);
 
     // Move to next dot
-    changeDot(currentDot, nextDot);
-
-    // Hide and Show arrow buttons
-    hideAndShowArrows(prevButton, nextButton, nextIndex, slides);
+    //changeDot(currentDot, nextDot);
 
 });
 
@@ -136,12 +170,13 @@ dotsNav.addEventListener('click', function(eventObject) {
 
 //Function definitions
 function moveToSlide(track, currentSlide, targetSlide) {
+    track.style.transition = 'transform 250ms ease-in-out';
     track.style.transform = 'translateX(-' + targetSlide.style.left + ')';
     currentSlide.classList.remove('current-slide');
     targetSlide.classList.add('current-slide');
 }
 
-function hideAndShowArrows(prevButton, nextButton, targetIndex, slides) {
+/*function hideAndShowArrows(prevButton, nextButton, targetIndex, slides) {
     if(targetIndex === 0){
         prevButton.style.left = '-45px';
         nextButton.style.right = '0px';
@@ -152,7 +187,7 @@ function hideAndShowArrows(prevButton, nextButton, targetIndex, slides) {
         prevButton.style.left = '0px';
         nextButton.style.right = '0px';
     }
-}
+} */
 
 function changeDot(currentDot, targetDot) {
     currentDot.classList.remove('current-dot');
