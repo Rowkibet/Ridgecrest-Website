@@ -1,7 +1,7 @@
 // Caching the DOM
 const trackContainer = document.querySelector('.carousel');
-const track = document.querySelector('.carousel-track');// ul
-let slides = track.children;// li items
+const track = document.querySelector('.carousel-track');
+let slides = track.children;
 const prevButton = document.querySelector('.previous-btn');
 const nextButton = document.querySelector('.next-btn');
 const dotsNav = document.querySelector('.carousel-slider-nav');
@@ -110,7 +110,7 @@ trackContainer.addEventListener('mouseleave', () => {
 
 // Buttons and Nav Indicators
 //When I click left, move the slide to the left
-prevButton.addEventListener('click', function(eventObject){
+prevButton.addEventListener('click', () => {
     const currentSlide = document.querySelector('.current-slide');
     const prevSlide = currentSlide.previousElementSibling;
     const currentDot = document.querySelector('.current-dot');
@@ -131,7 +131,7 @@ prevButton.addEventListener('click', function(eventObject){
 });
 
 //When I click right, move the slide to the right
-nextButton.addEventListener('click', function(eventObject){
+nextButton.addEventListener('click', () => {
     const currentSlide = document.querySelector('.current-slide');
     const nextSlide = currentSlide.nextElementSibling;
     const currentDot = document.querySelector('.current-dot');
@@ -153,10 +153,10 @@ nextButton.addEventListener('click', function(eventObject){
 });
 
 //When I click a slider indicator, move to the image slide matching the indicator
-dotsNav.addEventListener('click', function(eventObject) {
+dotsNav.addEventListener('click', event => {
     const currentSlide = document.querySelector('.current-slide');
     const currentDot = document.querySelector('.current-dot');
-    const targetDot = eventObject.target.closest('button');
+    const targetDot = event.target.closest('button');
 
     if(!targetDot) return;
 
