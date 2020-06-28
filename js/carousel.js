@@ -39,35 +39,39 @@ slides = track.children;
 const firstSlide = document.querySelector('.current-slide');
 track.style.transform = `translateX(-${firstSlide.style.left})`;
 
+// Change slides after every 3 seconds
 function changeSlides() {
     timerID = setInterval(() => {
         const currentSlide = document.querySelector('.current-slide');
         const nextSlide = currentSlide.nextElementSibling;
         const currentDot = document.querySelector('.current-dot');
         const nextDot = currentDot.nextElementSibling;
+        const currentIndex = Array.from(slides).findIndex(slide => slide === currentSlide);
 
         moveToSlide(track, currentSlide, nextSlide);
-        //changeDot(currentDot, nextDot);
+
+        //When moving to first slide from last slide
+        if(currentIndex === slides.length-2) {
+            currentDot.classList.remove('current-dot');
+            dots[0].classList.add('current-dot');  
+        } else {  
+            //move to next dot  
+            changeDot(currentDot, nextDot);
+        }
     }, 3000)
 }
 
 changeSlides();
 
+// Make the changes of slides in both directions infinite
 track.addEventListener('transitionend', () => {
     const currentSlide = document.querySelector('.current-slide');
-    const nextSlide = currentSlide.nextElementSibling;
-    const currentDot = document.querySelector('.current-dot');
-    const nextDot = currentDot.nextElementSibling;
 
-    //check if reached the firstClone
     if(currentSlide.className === firstClone.className) {
         track.style.transition = 'none';
         track.style.transform = `translateX(-${firstSlide.style.left})`;
         currentSlide.classList.remove('current-slide');
         slides[1].classList.add('current-slide');
-
-        currentDot.classList.remove('current-dot');
-        dots[0].classList.add('current-dot');
     } 
     else if(currentSlide.className === lastClone.className) {
         const lastSlide = slides[slides.length - 2];
@@ -76,21 +80,14 @@ track.addEventListener('transitionend', () => {
         track.style.transform = `translateX(-${lastSlide.style.left})`;
         currentSlide.classList.remove('current-slide');
         lastSlide.classList.add('current-slide');
-
-        currentDot.classList.remove('current-dot');
-        dots[0].classList.add('current-dot');
     }
 });
 
-// Display the arrows and nav indicators only when pointer hovers on carousel
+// Display the arrows only when pointer hovers on carousel
 timeoutID = setTimeout(showOnHover, 1000);
 
 function showOnHover(pointerOnCarousel) {
-    if(pointerOnCarousel) {
-        const currentSlide = document.querySelector('.current-slide');
-        const currentIndex = Array.from(slides).findIndex(slide => slide === currentSlide);
-        
-        //hideAndShowArrows(prevButton, nextButton, currentIndex, slides);
+    if(pointerOnCarousel) {     
         prevButton.style.left = '0px';
         nextButton.style.right = '0px';
     } else {
@@ -111,36 +108,47 @@ trackContainer.addEventListener('mouseleave', () => {
     changeSlides();
 });
 
+// Buttons and Nav Indicators
 //When I click left, move the slide to the left
 prevButton.addEventListener('click', function(eventObject){
     const currentSlide = document.querySelector('.current-slide');
     const prevSlide = currentSlide.previousElementSibling;
     const currentDot = document.querySelector('.current-dot');
     const prevDot = currentDot.previousElementSibling;
-    const prevIndex = Array.from(slides).findIndex(slide => slide === prevSlide);
+    const currentIndex = Array.from(slides).findIndex(slide => slide === currentSlide);
 
     // Move to previous slide
     moveToSlide(track, currentSlide, prevSlide);
 
-    // Move to previous dot
-    //changeDot(currentDot, prevDot);
-    
+    //when moving back to last slide
+    if(currentIndex === 1) {
+        currentDot.classList.remove('current-dot');
+        dots[dots.length-1].classList.add('current-dot'); 
+    } else {
+        // Move to previous dot
+        changeDot(currentDot, prevDot);
+    }
 });
 
-// Buttons and Nav Indicators
 //When I click right, move the slide to the right
 nextButton.addEventListener('click', function(eventObject){
     const currentSlide = document.querySelector('.current-slide');
     const nextSlide = currentSlide.nextElementSibling;
     const currentDot = document.querySelector('.current-dot');
     const nextDot = currentDot.nextElementSibling;
-    const nextIndex = Array.from(slides).findIndex(slide => slide === nextSlide);
+    const currentIndex = Array.from(slides).findIndex(slide => slide === currentSlide);
 
     // Move to next slide
     moveToSlide(track, currentSlide, nextSlide);
 
-    // Move to next dot
-    //changeDot(currentDot, nextDot);
+    //When reached last original slide
+    if(currentIndex === slides.length-2) {
+        currentDot.classList.remove('current-dot');
+        dots[0].classList.add('current-dot');  
+    } else {    
+        // Move to next dot
+        changeDot(currentDot, nextDot, currentIndex);
+    }
 
 });
 
@@ -160,12 +168,8 @@ dotsNav.addEventListener('click', function(eventObject) {
         const targetIndex = Array.from(dots).findIndex(dot => dot === targetDot);
 
         //Move to slide
-        targetSlide = slides[targetIndex];
+        targetSlide = slides[targetIndex+1];
         moveToSlide(track, currentSlide, targetSlide);
-
-    // Hide and Show arrow buttons
-    hideAndShowArrows(prevButton, nextButton, targetIndex, slides);
-
 });
 
 //Function definitions
@@ -176,24 +180,7 @@ function moveToSlide(track, currentSlide, targetSlide) {
     targetSlide.classList.add('current-slide');
 }
 
-/*function hideAndShowArrows(prevButton, nextButton, targetIndex, slides) {
-    if(targetIndex === 0){
-        prevButton.style.left = '-45px';
-        nextButton.style.right = '0px';
-    } else if(targetIndex === slides.length-1){
-        prevButton.style.left = '0px';
-        nextButton.style.right = '-45px';
-    } else {
-        prevButton.style.left = '0px';
-        nextButton.style.right = '0px';
-    }
-} */
-
-function changeDot(currentDot, targetDot) {
+function changeDot(currentDot, targetDot) { 
     currentDot.classList.remove('current-dot');
     targetDot.classList.add('current-dot');
-}
-
-function showDots() {
-    dotsNav.classList.add('is-hidden');
 }
