@@ -3,7 +3,6 @@
 }
 
 .carousel {
-    /* border: 1px solid blue; */
     position: relative;
     overflow: hidden;
 }
@@ -11,19 +10,16 @@
 .carousel-track-container {
     position: relative;
     background: green;
-    /* border: 1px solid red; */
     width: 100%;
-    height: 700px;
+    height: 620px;
     margin: 0 auto;
     overflow: hidden;   
 }
 
 .carousel-track {
-    /* border: 1px solid green; */
     margin: 0;
     padding: 0;
     list-style: none;
-    transition: transform 250ms ease-in-out;
     height: 100%;
 }
 
@@ -31,7 +27,6 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    /* border: 3px solid purple; */
 }
 
 .carousel-image {
@@ -53,7 +48,6 @@
     cursor: pointer;
     font-size: 1.37em;
     z-index: 100;
-    /* transition: all 300ms ease-out; */
 }
 
 .carousel-btn.previous-btn {
@@ -73,12 +67,10 @@
 }
 
 .carousel-slider-nav {
-    /* background: pink; */
     height: 40px;
     display: flex;
     justify-content: center;
     padding: 6px;
-    /* transition: all 300ms ease-out; */
 }
 
 .carousel-slider-nav .slider-indicator {
@@ -92,9 +84,4 @@
 
 .carousel-slider-nav .slider-indicator.current-dot {
     background-color: rgba(0, 0 , 0, .60);
-}
-
-.is-hidden {
-    display: none;
-    /* transition: all 300ms ease-out; */
 }
