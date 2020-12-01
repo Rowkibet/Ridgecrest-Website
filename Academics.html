@@ -2,125 +2,44 @@
 <Html>
     <Head>
         <Title> Academics </Title>
-        <link rel="stylesheet" type="text/css" href="Ridgecrest.css">
-        <Style type = text/css>
-            header{
-                background-color: #55d6aa; /*#9df3d6*/
-            }
-            
-            .header-container{
-                width: 80%;
-                margin: 0 auto;
-            }
-            
-            .logo-container{
-                margin: 0 auto;
-                padding: 0;
-            }
-            
-            .logoUni{
-                float: left;
-                width: 95px;
-                height: 95px;
-                margin: 0;
-                padding: 0;
-            }
-
-            nav{
-                float: right;
-            }
-
-            nav ul{
-                margin: 0;
-                padding: 0;
-                list-style-type: none;
-            }
-
-            nav ul li{
-                /* border: 1px solid red; */
-                display: inline-block; /* same line */
-                margin-left: 60px;
-                padding-top: 35px;
-                padding-bottom: 37px;
-                padding-left: 10px;
-                padding-right: 10px;
-            }
-
-            nav ul li a{
-                color: #444;
-                text-decoration: none;
-                text-transform: uppercase;
-                font-size: 15px;
-                font-weight: 400;
-
-                /* padding: 5px 0 5px 5px; */
-            }
-
-            nav ul li:hover a{ /*text highlight */
-                color: #000;
-            }
-            nav ul li::after {
-                content: '';
-                display: block;
-                height: 3px;
-                width: 0;
-                background-color: #444;
-                transition: ease-out 250ms;
-            }
-
-            nav ul li:hover::after {
-                width: 100%;
-                transition: all ease-in-out 250ms;
-            }
-
-            nav .active::after{
-                content: '';
-                display: block;
-                width: 100%;
-                height: 3px;
-                background-color: #444;
-            }
-
-        </Style>
+        <link rel="stylesheet" type="text/css" href="css/Ridgecrest.css">
+        <link rel="stylesheet" href="css/nav-bar.css">
+        <link href="https://fonts.googleapis.com/css2?family=Candal&family=Lora&display=swap" rel="stylesheet">
     </Head>
 
-        <Body>
-            <header>
-                <div class="header-container">
-                    <div class="logo-container">
-                        <img src = "images/Ridgecrest University logo.png" alt= "Ridgecrest University logo" class="logoUni">
-                    </div>   
+    <Body>
+    <!-- Navigation -->        
+    <div class="nav-bar">
+        <div class="nav-logo">
+            <img src = "images/Ridgecrest University logo.png" width = "150" height="150" alt= "Ridgecrest University logo">
+        </div>
+        <ul>
+            <li><a href="index.html"> HOME </a></li>
+            <li><a href="Admission.html"> ADMISSIONS </a></li>
+            <li class="active"><a href="Academics.html">ACADEMICS </a></li>
+            <li><a href="About_us.html"> ABOUT US </a></li>
+            <li><a href="Blog.html"> BLOG </a></li>
+            <li class="login"><a href="Login.html">LOGIN</a></li>
+        </ul>
+    </div>
+    <!-- // Navigation -->
+
+    <!-- Content Section -->
+    <main>
+        <article>
             
-                    <!-- Navigation Menu -->
-                    <nav>
-                        <ul>
-                            <li><a href="index.html"> Home </a></li>
-                            <li><a href="Admission.html"> Admissions </a></li>
-                            <li class="active"><a href="Academics.html">Academics </a></li>
-                            <li><a href="About_us.html"> About Us </a></li>
-                            <li><a href="Blog.html"> Blog </a></li>
-                            <li><a href="Login.html">Login</a></li>
-                        </ul>
-                    </nav>
-                </div> 
-            </header>
+        </article>
 
-            <!-- Content Section -->
-            <main>
-                <article>
+                <aside>
                     
-                </article>
+                </aside>
+    </main>
 
-                        <aside>
-                            
-                        </aside>
-            </main>
+    <!-- Footer Section -->
+    <footer>
+        
+    </footer>
 
-            <!-- Footer Section -->
-            <footer>
-                
-            </footer>
-
-        </Body>
+    </Body>
 
 </Html>

@@ -174,7 +174,7 @@ dotsNav.addEventListener('click', event => {
 
 //Function definitions
 function moveToSlide(track, currentSlide, targetSlide) {
-    track.style.transition = 'transform 250ms ease-in-out';
+    track.style.transition = 'transform 300ms ease-in-out';
     track.style.transform = 'translateX(-' + targetSlide.style.left + ')';
     currentSlide.classList.remove('current-slide');
     targetSlide.classList.add('current-slide');
