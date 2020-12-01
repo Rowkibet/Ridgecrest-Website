@@ -315,6 +315,12 @@ footer .address .socials a:hover {
 .contact-us button {
     float: right;
     font-size: 1.1rem;
+    cursor: pointer;
+    transition: background 100ms ease-in-out;
+}
+
+.contact-us button:hover {
+    background: #00888d;
 }
 
 footer .copyright-footer {

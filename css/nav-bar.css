@@ -39,7 +39,7 @@
     width: 160px;
     height: 100%;
     position: relative;
-    transition: background-color 220ms linear;
+    transition: background-color 150ms linear;
 }
 
 
@@ -59,12 +59,12 @@
     background-color: white;
     position: absolute;
     bottom: 0;
-    transition: width 220ms linear;
+    transition: width 150ms linear;
 }
 
 .nav-bar li:hover::after {
     width: 98%;
-    transition: width 250ms linear;
+    transition: width 170ms linear;
     transition-delay: 70ms;
 }
 
